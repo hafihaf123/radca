@@ -2,7 +2,6 @@ package com.hafihaf.radca.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,7 +15,8 @@ import com.hafihaf.radca.ui.theme.RadcaTheme
 @Composable
 fun Nadpis(
     modifier: Modifier,
-    text: String
+    text: String,
+    textSize: Int
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -24,10 +24,10 @@ fun Nadpis(
     ) {
         Text(
             text = text,
-            fontSize = 25.sp,
+            fontSize = textSize.sp,
             fontWeight = FontWeight.Bold
         )
-        Divider(modifier = Modifier.padding(10.dp))
+//        Divider(modifier = Modifier.padding(10.dp))
     }
 }
 
@@ -37,6 +37,7 @@ fun NadpisPreview() {
     RadcaTheme {
         Nadpis(
             text = "Hello World!",
+            textSize = 25,
             modifier = Modifier
                 .padding(16.dp)
         )
