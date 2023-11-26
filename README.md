@@ -3,8 +3,8 @@
 ## TODO
 
 - [ ] add new screens (Settings, ...)
-- [ ] blend in the top bar on phones
 - [ ] IconButton add onClick logic
+- [x] blend in the top bar on phones
 - [x] save druzContent with SharedPreferences
    - added with datastore
 - [x] add MoreButton
