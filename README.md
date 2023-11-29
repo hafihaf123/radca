@@ -2,6 +2,8 @@
 
 ## TODO
 
+- [ ] optimise todo (popBackstack, showSnakbar) (basically UiEvent)
+- [ ] implement MVVM structure
 - [ ] add new screens (Settings, ...)
 - [ ] IconButton add onClick logic
 - [x] blend in the top bar on phones

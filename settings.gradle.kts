@@ -15,6 +15,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "radca"
+rootProject.name = "todo"
 include(":app")
  
