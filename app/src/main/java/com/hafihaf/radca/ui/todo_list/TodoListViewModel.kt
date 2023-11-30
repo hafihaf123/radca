@@ -45,7 +45,8 @@ class TodoListViewModel @Inject constructor(
                     repository.deleteTodo(event.todo)
                     sendUiEvent(UiEvent.ShowSnackbar(
                         message = "Todo deleted",
-                        action = "Undo"
+                        action = "Undo",
+                        withDismissAction = false
                     ))
                 }
             }

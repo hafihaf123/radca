@@ -2,7 +2,7 @@
 
 ## TODO
 
-- [ ] optimise todo (popBackstack, showSnakbar) (basically UiEvent)
+- [ ] optimise todo screen (addButton won't navigate while the snackbar is shown)
 - [ ] implement MVVM structure
 - [ ] add new screens (Settings, ...)
 - [ ] IconButton add onClick logic

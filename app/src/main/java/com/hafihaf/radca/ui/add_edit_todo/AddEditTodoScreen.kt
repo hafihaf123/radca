@@ -34,11 +34,13 @@ fun AddEditTodoScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.PopBackStack -> onPopBackStack
+                is UiEvent.PopBackStack -> onPopBackStack()
                 is UiEvent.ShowSnackbar -> {
                     snackbarHostState.showSnackbar(
                         message = event.message,
-                        actionLabel = event.action
+                        actionLabel = event.action,
+                        withDismissAction = event.withDismissAction!!,
+                        duration = event.duration!!
                     )
                 }
                 else -> Unit
