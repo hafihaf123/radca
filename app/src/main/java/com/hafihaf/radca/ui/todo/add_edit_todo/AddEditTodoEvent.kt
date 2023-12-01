@@ -1,4 +1,4 @@
-package com.hafihaf.radca.ui.add_edit_todo
+package com.hafihaf.radca.ui.todo.add_edit_todo
 
 sealed class AddEditTodoEvent {
     data class OnTitleChange(val title: String): AddEditTodoEvent()

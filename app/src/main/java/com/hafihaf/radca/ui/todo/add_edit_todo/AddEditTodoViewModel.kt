@@ -1,4 +1,4 @@
-package com.hafihaf.radca.ui.add_edit_todo
+package com.hafihaf.radca.ui.todo.add_edit_todo
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hafihaf.radca.data.Todo
-import com.hafihaf.radca.data.TodoRepository
+import com.hafihaf.radca.data.todo.Todo
+import com.hafihaf.radca.data.todo.TodoRepository
 import com.hafihaf.radca.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

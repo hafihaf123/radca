@@ -1,4 +1,4 @@
-package com.hafihaf.radca.ui.todo_list
+package com.hafihaf.radca.ui.todo.todo_list
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.hafihaf.radca.data.Todo
+import com.hafihaf.radca.data.todo.Todo
 
 @Composable
 fun TodoListItem(

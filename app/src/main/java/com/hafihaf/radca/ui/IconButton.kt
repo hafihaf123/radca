@@ -14,11 +14,12 @@ import com.hafihaf.radca.ui.theme.RadcaTheme
 fun IconButton(
     modifier: Modifier,
     icon: ImageVector,
-    contentDescription: String
+    contentDescription: String,
+    onClick: (() -> Unit)? = null
 ) {
     FloatingActionButton(
         modifier = modifier,
-        onClick = { /*TODO*/ }
+        onClick = { onClick?.let { it() } }
     ) {
         Icon(icon, contentDescription)
     }

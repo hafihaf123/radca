@@ -1,12 +1,12 @@
-package com.hafihaf.radca.data
+package com.hafihaf.radca.data.todo
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
 @Database(
     entities = [Todo::class],
-    version = 1,
-    exportSchema = false
+    version = 1
+//    exportSchema = false
 )
 abstract class TodoDatabase: RoomDatabase() {
 

@@ -1,4 +1,4 @@
-package com.hafihaf.radca.data
+package com.hafihaf.radca.data.todo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

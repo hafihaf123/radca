@@ -8,10 +8,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Divider
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -30,11 +32,16 @@ import com.hafihaf.radca.datastore.StoreDruzContent
 import com.hafihaf.radca.ui.IconButton
 import com.hafihaf.radca.ui.InputBlock
 import com.hafihaf.radca.ui.Nadpis
+import com.hafihaf.radca.ui.NavigationDrawer
 import com.hafihaf.radca.ui.theme.RadcaTheme
+import com.hafihaf.radca.util.Routes
+import com.hafihaf.radca.util.UiEvent
 import kotlinx.coroutines.launch
 
 @Composable
-fun DruzinovkaScreen() {
+fun DruzinovkaScreen(
+    onNavigate: (UiEvent.Navigate) -> Unit
+) {
 
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -48,59 +55,69 @@ fun DruzinovkaScreen() {
         druzContent = savedDruzContent.value!!
     }
 
-    Column (
-        modifier = Modifier
-            .padding(6.dp, 16.dp)
-            .safeDrawingPadding()
-            .fillMaxSize()
-    ) {
-        Row (
-            modifier = Modifier.padding(horizontal = 8.dp)
-        ) {
-            IconButton(
-                modifier = Modifier.size(50.dp),
-                icon = Icons.Filled.Menu,
-                contentDescription = stringResource(R.string.side_menu_button)
-            )
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
 
-            Nadpis(
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .weight(1f),
-                text = stringResource(R.string.druzinovka),
-                textSize = 30
-            )
-
-            IconButton(
-                modifier = Modifier.size(50.dp),
-                icon = Icons.Filled.Settings,
-                contentDescription = stringResource(R.string.settings_button)
-            )
-        }
-
-        Divider(modifier = Modifier.padding(0.dp, 16.dp))
-
-        InputBlock(
+    NavigationDrawer(
+        drawerState = drawerState,
+        scope = scope,
+        onNavigate = onNavigate,
+        screenRoute = Routes.DRUZINOVKA
+    ){
+        Column(
             modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
-            text = druzContent,
-            placeholder = "write here",
-            onTextChange = {
-                druzContent = it
-                scope.launch {
-                    datastore.saveDruzContent(druzContent)
-                }
-            }
-        )
-        Row(
-            modifier = Modifier.padding(8.dp)
+                .padding(6.dp, 16.dp)
+                .safeDrawingPadding()
+                .fillMaxSize()
         ) {
-            IconButton(
-                modifier = Modifier.size(50.dp),
-                icon = Icons.Filled.Add,
-                contentDescription = "more"
+            Row(
+                modifier = Modifier.padding(horizontal = 8.dp)
+            ) {
+                IconButton(
+                    modifier = Modifier.size(50.dp),
+                    icon = Icons.Filled.Menu,
+                    contentDescription = stringResource(R.string.side_menu_button),
+                    onClick = /*onNavigate*/{ scope.launch { drawerState.open() } }
+                )
+
+                Nadpis(
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .weight(1f),
+                    text = stringResource(R.string.druzinovka),
+                    textSize = 30
+                )
+
+                IconButton(
+                    modifier = Modifier.size(50.dp),
+                    icon = Icons.Filled.Settings,
+                    contentDescription = stringResource(R.string.settings_button)
+                )
+            }
+
+            Divider(modifier = Modifier.padding(0.dp, 16.dp))
+
+            InputBlock(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth(),
+                text = druzContent,
+                placeholder = "write here",
+                onTextChange = {
+                    druzContent = it
+                    scope.launch {
+                        datastore.saveDruzContent(druzContent)
+                    }
+                }
             )
+            Row(
+                modifier = Modifier.padding(8.dp)
+            ) {
+                IconButton(
+                    modifier = Modifier.size(50.dp),
+                    icon = Icons.Filled.Delete,
+                    contentDescription = "delete"
+                )
+            }
         }
     }
 }
@@ -109,6 +126,8 @@ fun DruzinovkaScreen() {
 @Composable
 fun DruzinovkaScreenPreview() {
     RadcaTheme {
-        DruzinovkaScreen()
+        DruzinovkaScreen(
+            onNavigate = { }
+        )
     }
 }

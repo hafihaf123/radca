@@ -1,4 +1,4 @@
-package com.hafihaf.radca.ui.add_edit_todo
+package com.hafihaf.radca.ui.todo.add_edit_todo
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

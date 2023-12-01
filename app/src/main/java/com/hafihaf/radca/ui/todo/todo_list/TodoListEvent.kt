@@ -1,6 +1,6 @@
-package com.hafihaf.radca.ui.todo_list
+package com.hafihaf.radca.ui.todo.todo_list
 
-import com.hafihaf.radca.data.Todo
+import com.hafihaf.radca.data.todo.Todo
 
 sealed class TodoListEvent {
     data class OnDeleteTodoClick(val todo: Todo): TodoListEvent()

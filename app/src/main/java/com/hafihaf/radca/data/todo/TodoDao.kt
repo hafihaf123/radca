@@ -1,4 +1,4 @@
-package com.hafihaf.radca.data
+package com.hafihaf.radca.data.todo
 
 import androidx.room.Dao
 import androidx.room.Delete

@@ -5,7 +5,8 @@
 - [ ] optimise todo screen (addButton won't navigate while the snackbar is shown)
 - [ ] implement MVVM structure
 - [ ] add new screens (Settings, ...)
-- [ ] IconButton add onClick logic
+- [ ] change Nadpis to a top app bar
+- [x] IconButton add onClick logic
 - [x] blend in the top bar on phones
 - [x] save druzContent with SharedPreferences
    - added with datastore

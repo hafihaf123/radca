@@ -1,9 +1,9 @@
-package com.hafihaf.radca.ui.todo_list
+package com.hafihaf.radca.ui.todo.todo_list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.hafihaf.radca.data.Todo
-import com.hafihaf.radca.data.TodoRepository
+import com.hafihaf.radca.data.todo.Todo
+import com.hafihaf.radca.data.todo.TodoRepository
 import com.hafihaf.radca.util.Routes
 import com.hafihaf.radca.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel

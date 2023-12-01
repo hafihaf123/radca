@@ -2,10 +2,10 @@ package com.hafihaf.radca.di
 
 import android.content.Context
 import androidx.room.Room
-import com.hafihaf.radca.data.TodoDao
-import com.hafihaf.radca.data.TodoDatabase
-import com.hafihaf.radca.data.TodoRepository
-import com.hafihaf.radca.data.TodoRepositoryImpl
+import com.hafihaf.radca.data.todo.TodoDao
+import com.hafihaf.radca.data.todo.TodoDatabase
+import com.hafihaf.radca.data.todo.TodoRepository
+import com.hafihaf.radca.data.todo.TodoRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +29,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDao(appDatabase: TodoDatabase) : TodoDao {
+    fun provideTodoDao(appDatabase: TodoDatabase) : TodoDao {
         return appDatabase.todoDao()
     }
 
