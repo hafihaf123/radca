@@ -1,10 +1,11 @@
 package com.hafihaf.radca.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
@@ -19,15 +20,19 @@ fun InputBlock(
     onTextChange: (String) -> Unit,
     placeholder: String
 ) {
-    TextField(
+    OutlinedTextField(
         value = text,
         onValueChange = { onTextChange(it) },
-        modifier = modifier,
+        modifier = modifier
+            .background(MaterialTheme.colorScheme.background),
         placeholder = { Text(text = placeholder, fontStyle = FontStyle.Italic) },
-        colors = TextFieldDefaults.colors(
+        colors = OutlinedTextFieldDefaults.colors(
             focusedContainerColor = MaterialTheme.colorScheme.background,
             unfocusedContainerColor = MaterialTheme.colorScheme.background,
             disabledContainerColor = MaterialTheme.colorScheme.background,
+            focusedBorderColor = MaterialTheme.colorScheme.background,
+            unfocusedBorderColor = MaterialTheme.colorScheme.background,
+            disabledBorderColor = MaterialTheme.colorScheme.background,
         )
     )
 }

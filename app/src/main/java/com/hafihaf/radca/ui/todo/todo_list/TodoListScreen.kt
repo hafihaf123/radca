@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.Divider
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -24,9 +25,11 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.hafihaf.radca.ui.Nadpis
 import com.hafihaf.radca.ui.NavigationDrawer
 import com.hafihaf.radca.util.Routes
 import com.hafihaf.radca.util.UiEvent
+import kotlinx.coroutines.launch
 
 @Composable
 fun TodoListScreen(
@@ -59,7 +62,12 @@ fun TodoListScreen(
         }
     }
 
-    NavigationDrawer(drawerState = drawerState, scope = scope, onNavigate = onNavigate, screenRoute = Routes.TODO) {
+    NavigationDrawer(
+        drawerState = drawerState,
+        scope = scope,
+        onNavigate = onNavigate,
+        screenRoute = Routes.TODO
+    ) {
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) },
             floatingActionButton = {
@@ -69,12 +77,21 @@ fun TodoListScreen(
                         contentDescription = "Add"
                     )
                 }
+            },
+            topBar = {
+                Nadpis(
+                    modifier = Modifier,
+                    title = "Todo",
+                    onClick = { scope.launch { drawerState.open() } }
+                )
+                Divider()
             }
         ) { innerPadding ->
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
+                    .padding(horizontal = 6.dp)
             ) {
                 items(todos.value) { todo ->
                     TodoListItem(
@@ -85,7 +102,7 @@ fun TodoListScreen(
                             .clickable {
                                 viewModel.onEvent(TodoListEvent.OnTodoClick(todo))
                             }
-                            .padding(16.dp)
+                            .padding(12.dp)
                     )
                 }
             }
